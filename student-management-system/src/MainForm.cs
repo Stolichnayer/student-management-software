@@ -20,9 +20,13 @@ namespace student_management_system
         {
             InitializeComponent();
             CreateButtonFocusBorder();
-
+            
+            //Draw round borders
              Region = Region.
-                FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
+                FromHrgn(CreateRoundRectRgn(0, 0, 
+                                            Width, Height, 
+                                            20, 20));
+             DoubleBuffered = true;
         }
 
         private void CreateButtonFocusBorder()
@@ -132,6 +136,19 @@ namespace student_management_system
                     (0, 0, Screen.PrimaryScreen.WorkingArea.Width,
                         Screen.PrimaryScreen.WorkingArea.Height, 20, 20));
             }
+        }
+
+        //Add Drag Operation to titlebar
+        [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
+        private static extern void ReleaseCapture();
+
+        [DllImport("user32.dll", EntryPoint = "SendMessage")]
+        private static extern void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+        private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

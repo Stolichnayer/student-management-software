@@ -55,7 +55,7 @@
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(183, 552);
+            this.panelMenu.Size = new System.Drawing.Size(183, 594);
             this.panelMenu.TabIndex = 0;
             // 
             // iconBtnExit
@@ -191,8 +191,9 @@
             this.panelTitleBar.ForeColor = System.Drawing.Color.Black;
             this.panelTitleBar.Location = new System.Drawing.Point(183, 0);
             this.panelTitleBar.Name = "panelTitleBar";
-            this.panelTitleBar.Size = new System.Drawing.Size(794, 23);
+            this.panelTitleBar.Size = new System.Drawing.Size(900, 23);
             this.panelTitleBar.TabIndex = 1;
+            this.panelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
             // 
             // iconBtnTitlebarExit
             // 
@@ -205,7 +206,7 @@
             this.iconBtnTitlebarExit.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconBtnTitlebarExit.IconSize = 20;
             this.iconBtnTitlebarExit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.iconBtnTitlebarExit.Location = new System.Drawing.Point(764, 0);
+            this.iconBtnTitlebarExit.Location = new System.Drawing.Point(870, 0);
             this.iconBtnTitlebarExit.Name = "iconBtnTitlebarExit";
             this.iconBtnTitlebarExit.Size = new System.Drawing.Size(30, 23);
             this.iconBtnTitlebarExit.TabIndex = 2;
@@ -223,7 +224,7 @@
             this.iconBtnTitleBarMinimize.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconBtnTitleBarMinimize.IconSize = 20;
             this.iconBtnTitleBarMinimize.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.iconBtnTitleBarMinimize.Location = new System.Drawing.Point(709, 0);
+            this.iconBtnTitleBarMinimize.Location = new System.Drawing.Point(815, 0);
             this.iconBtnTitleBarMinimize.Name = "iconBtnTitleBarMinimize";
             this.iconBtnTitleBarMinimize.Size = new System.Drawing.Size(30, 23);
             this.iconBtnTitleBarMinimize.TabIndex = 3;
@@ -241,7 +242,7 @@
             this.iconBtnTitlebarMaximize.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconBtnTitlebarMaximize.IconSize = 20;
             this.iconBtnTitlebarMaximize.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.iconBtnTitlebarMaximize.Location = new System.Drawing.Point(738, 0);
+            this.iconBtnTitlebarMaximize.Location = new System.Drawing.Point(844, 0);
             this.iconBtnTitlebarMaximize.Name = "iconBtnTitlebarMaximize";
             this.iconBtnTitlebarMaximize.Size = new System.Drawing.Size(30, 23);
             this.iconBtnTitlebarMaximize.TabIndex = 4;
@@ -252,7 +253,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(977, 552);
+            this.ClientSize = new System.Drawing.Size(1083, 594);
             this.Controls.Add(this.panelTitleBar);
             this.Controls.Add(this.panelMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

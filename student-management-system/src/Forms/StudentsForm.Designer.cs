@@ -54,9 +54,9 @@
             // 
             this.panelBottomHalf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(56)))));
             this.panelBottomHalf.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBottomHalf.Location = new System.Drawing.Point(0, 412);
+            this.panelBottomHalf.Location = new System.Drawing.Point(0, 369);
             this.panelBottomHalf.Name = "panelBottomHalf";
-            this.panelBottomHalf.Size = new System.Drawing.Size(900, 159);
+            this.panelBottomHalf.Size = new System.Drawing.Size(900, 202);
             this.panelBottomHalf.TabIndex = 1;
             // 
             // totalStudentsLabel
@@ -92,7 +92,7 @@
             this.dataGridViewStudents.RowHeadersWidth = 50;
             this.dataGridViewStudents.RowTemplate.Height = 35;
             this.dataGridViewStudents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewStudents.Size = new System.Drawing.Size(900, 371);
+            this.dataGridViewStudents.Size = new System.Drawing.Size(900, 328);
             this.dataGridViewStudents.TabIndex = 3;
             this.dataGridViewStudents.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewStudents_RowPostPaint);
             // 
@@ -136,6 +136,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "StudentsForm";
             this.Text = "StudentsForm";
+            this.Load += new System.EventHandler(this.StudentsForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudents)).EndInit();

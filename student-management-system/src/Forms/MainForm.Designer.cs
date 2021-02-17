@@ -207,7 +207,7 @@
             this.iconBtnTitlebarMaximize.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconBtnTitlebarMaximize.IconSize = 20;
             this.iconBtnTitlebarMaximize.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.iconBtnTitlebarMaximize.Location = new System.Drawing.Point(844, 0);
+            this.iconBtnTitlebarMaximize.Location = new System.Drawing.Point(840, 0);
             this.iconBtnTitlebarMaximize.Name = "iconBtnTitlebarMaximize";
             this.iconBtnTitlebarMaximize.Size = new System.Drawing.Size(30, 23);
             this.iconBtnTitlebarMaximize.TabIndex = 4;
@@ -225,7 +225,7 @@
             this.iconBtnTitleBarMinimize.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconBtnTitleBarMinimize.IconSize = 20;
             this.iconBtnTitleBarMinimize.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.iconBtnTitleBarMinimize.Location = new System.Drawing.Point(815, 0);
+            this.iconBtnTitleBarMinimize.Location = new System.Drawing.Point(811, 0);
             this.iconBtnTitleBarMinimize.Name = "iconBtnTitleBarMinimize";
             this.iconBtnTitleBarMinimize.Size = new System.Drawing.Size(30, 23);
             this.iconBtnTitleBarMinimize.TabIndex = 3;
@@ -243,7 +243,7 @@
             this.iconBtnTitlebarExit.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconBtnTitlebarExit.IconSize = 20;
             this.iconBtnTitlebarExit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.iconBtnTitlebarExit.Location = new System.Drawing.Point(870, 0);
+            this.iconBtnTitlebarExit.Location = new System.Drawing.Point(866, 0);
             this.iconBtnTitlebarExit.Name = "iconBtnTitlebarExit";
             this.iconBtnTitlebarExit.Size = new System.Drawing.Size(30, 23);
             this.iconBtnTitlebarExit.TabIndex = 2;

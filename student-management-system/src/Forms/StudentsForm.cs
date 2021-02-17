@@ -1,6 +1,8 @@
 ﻿using System.Data;
 using System.Drawing;
+using System.Reflection;
 using System.Windows.Forms;
+
 using student_management_system.Controller;
 
 namespace student_management_system.Forms
@@ -9,10 +11,15 @@ namespace student_management_system.Forms
     {
         public StudentsForm()
         {
+            
             InitializeComponent();
             DoubleBuffered = true;
 
             UpdateDataGrid();
+
+            typeof(DataGridView).InvokeMember("DoubleBuffered",
+                BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.SetProperty,
+                null,this.dataGridViewStudents,new object[] { true });
         }
 
         private void UpdateDataGrid()
@@ -51,6 +58,11 @@ namespace student_management_system.Forms
         {
             dataGridViewStudents.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(153, 153, 255);
             dataGridViewStudents.Font = new Font("Century Gothic", 10, FontStyle.Regular);
+        }
+
+        private void StudentsForm_Load(object sender, System.EventArgs e)
+        {
+            
         }
     }
 }

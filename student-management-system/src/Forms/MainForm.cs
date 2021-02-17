@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using FontAwesome.Sharp;
 
@@ -9,6 +11,7 @@ using FontAwesome.Sharp;
 // TODO: Refresh
 // TODO: Search
 // TODO: first column numbers
+// TODO: loading
 
 namespace student_management_system.Forms
 {
@@ -27,7 +30,7 @@ namespace student_management_system.Forms
              Region = Region.
                 FromHrgn(CreateRoundRectRgn(0, 0, 
                                             Width, Height, 
-                                            20, 20));
+                                            40, 40));
              DoubleBuffered = true;
         }
 
@@ -91,15 +94,21 @@ namespace student_management_system.Forms
         {
             FocusButton(sender, Color.LightSalmon);
 
+            LoadStudentsForm();
+        }
+
+        private void LoadStudentsForm()
+        {
             if (_activeForm is StudentsForm studentsForm)
                 return;
 
             _activeForm = new StudentsForm();
+        
             _activeForm.TopLevel = false;
             panelMain.Controls.Add(_activeForm);
-            _activeForm.BringToFront();
-            _activeForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            _activeForm.FormBorderStyle = FormBorderStyle.None;
             _activeForm.Dock = DockStyle.Fill;
+
             _activeForm.Show();
         }
 
@@ -138,7 +147,7 @@ namespace student_management_system.Forms
                 Region = Region.
                     FromHrgn(CreateRoundRectRgn
                     (0, 0, Width,
-                        Height, 20, 20));
+                        Height, 40, 40));
             }
             else
             {

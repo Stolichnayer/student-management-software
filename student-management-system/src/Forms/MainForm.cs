@@ -10,17 +10,19 @@ using FontAwesome.Sharp;
 // TODO: Search
 // TODO: first column numbers
 
-namespace student_management_system
+namespace student_management_system.Forms
 {
     public partial class MainForm : Form
     {
         private Panel _leftBorderPanel;
         private IconButton _focusedButton;
+        private Form _activeForm;
+
         public MainForm()
         {
             InitializeComponent();
             CreateButtonFocusBorder();
-            
+
             //Draw round borders
              Region = Region.
                 FromHrgn(CreateRoundRectRgn(0, 0, 
@@ -88,6 +90,17 @@ namespace student_management_system
         private void iconBtnStudents_Click(object sender, EventArgs e)
         {
             FocusButton(sender, Color.LightSalmon);
+
+            if (_activeForm is StudentsForm studentsForm)
+                return;
+
+            _activeForm = new StudentsForm();
+            _activeForm.TopLevel = false;
+            panelMain.Controls.Add(_activeForm);
+            _activeForm.BringToFront();
+            _activeForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            _activeForm.Dock = DockStyle.Fill;
+            _activeForm.Show();
         }
 
         private void iconBtnCourses_Click(object sender, EventArgs e)

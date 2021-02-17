@@ -1,4 +1,4 @@
-﻿namespace student_management_system
+﻿namespace student_management_system.Forms
 {
     partial class MainForm
     {
@@ -36,9 +36,10 @@
             this.iconBtnStudents = new FontAwesome.Sharp.IconButton();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.panelTitleBar = new System.Windows.Forms.Panel();
-            this.iconBtnTitlebarExit = new FontAwesome.Sharp.IconButton();
-            this.iconBtnTitleBarMinimize = new FontAwesome.Sharp.IconButton();
             this.iconBtnTitlebarMaximize = new FontAwesome.Sharp.IconButton();
+            this.iconBtnTitleBarMinimize = new FontAwesome.Sharp.IconButton();
+            this.iconBtnTitlebarExit = new FontAwesome.Sharp.IconButton();
+            this.panelMain = new System.Windows.Forms.Panel();
             this.panelMenu.SuspendLayout();
             this.panelTitleBar.SuspendLayout();
             this.SuspendLayout();
@@ -195,23 +196,23 @@
             this.panelTitleBar.TabIndex = 1;
             this.panelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
             // 
-            // iconBtnTitlebarExit
+            // iconBtnTitlebarMaximize
             // 
-            this.iconBtnTitlebarExit.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.iconBtnTitlebarExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(32)))), ((int)(((byte)(68)))));
-            this.iconBtnTitlebarExit.FlatAppearance.BorderSize = 0;
-            this.iconBtnTitlebarExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconBtnTitlebarExit.IconChar = FontAwesome.Sharp.IconChar.Times;
-            this.iconBtnTitlebarExit.IconColor = System.Drawing.Color.Gainsboro;
-            this.iconBtnTitlebarExit.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconBtnTitlebarExit.IconSize = 20;
-            this.iconBtnTitlebarExit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.iconBtnTitlebarExit.Location = new System.Drawing.Point(870, 0);
-            this.iconBtnTitlebarExit.Name = "iconBtnTitlebarExit";
-            this.iconBtnTitlebarExit.Size = new System.Drawing.Size(30, 23);
-            this.iconBtnTitlebarExit.TabIndex = 2;
-            this.iconBtnTitlebarExit.UseVisualStyleBackColor = false;
-            this.iconBtnTitlebarExit.Click += new System.EventHandler(this.iconButton1_Click);
+            this.iconBtnTitlebarMaximize.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.iconBtnTitlebarMaximize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(32)))), ((int)(((byte)(68)))));
+            this.iconBtnTitlebarMaximize.FlatAppearance.BorderSize = 0;
+            this.iconBtnTitlebarMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconBtnTitlebarMaximize.IconChar = FontAwesome.Sharp.IconChar.WindowMaximize;
+            this.iconBtnTitlebarMaximize.IconColor = System.Drawing.Color.Gainsboro;
+            this.iconBtnTitlebarMaximize.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconBtnTitlebarMaximize.IconSize = 20;
+            this.iconBtnTitlebarMaximize.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.iconBtnTitlebarMaximize.Location = new System.Drawing.Point(844, 0);
+            this.iconBtnTitlebarMaximize.Name = "iconBtnTitlebarMaximize";
+            this.iconBtnTitlebarMaximize.Size = new System.Drawing.Size(30, 23);
+            this.iconBtnTitlebarMaximize.TabIndex = 4;
+            this.iconBtnTitlebarMaximize.UseVisualStyleBackColor = false;
+            this.iconBtnTitlebarMaximize.Click += new System.EventHandler(this.iconBtnTitlebarMaximize_Click);
             // 
             // iconBtnTitleBarMinimize
             // 
@@ -231,29 +232,39 @@
             this.iconBtnTitleBarMinimize.UseVisualStyleBackColor = false;
             this.iconBtnTitleBarMinimize.Click += new System.EventHandler(this.iconBtnTitleBarMinimize_Click);
             // 
-            // iconBtnTitlebarMaximize
+            // iconBtnTitlebarExit
             // 
-            this.iconBtnTitlebarMaximize.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.iconBtnTitlebarMaximize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(32)))), ((int)(((byte)(68)))));
-            this.iconBtnTitlebarMaximize.FlatAppearance.BorderSize = 0;
-            this.iconBtnTitlebarMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconBtnTitlebarMaximize.IconChar = FontAwesome.Sharp.IconChar.WindowMaximize;
-            this.iconBtnTitlebarMaximize.IconColor = System.Drawing.Color.Gainsboro;
-            this.iconBtnTitlebarMaximize.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconBtnTitlebarMaximize.IconSize = 20;
-            this.iconBtnTitlebarMaximize.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.iconBtnTitlebarMaximize.Location = new System.Drawing.Point(844, 0);
-            this.iconBtnTitlebarMaximize.Name = "iconBtnTitlebarMaximize";
-            this.iconBtnTitlebarMaximize.Size = new System.Drawing.Size(30, 23);
-            this.iconBtnTitlebarMaximize.TabIndex = 4;
-            this.iconBtnTitlebarMaximize.UseVisualStyleBackColor = false;
-            this.iconBtnTitlebarMaximize.Click += new System.EventHandler(this.iconBtnTitlebarMaximize_Click);
+            this.iconBtnTitlebarExit.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.iconBtnTitlebarExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(32)))), ((int)(((byte)(68)))));
+            this.iconBtnTitlebarExit.FlatAppearance.BorderSize = 0;
+            this.iconBtnTitlebarExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconBtnTitlebarExit.IconChar = FontAwesome.Sharp.IconChar.Times;
+            this.iconBtnTitlebarExit.IconColor = System.Drawing.Color.Gainsboro;
+            this.iconBtnTitlebarExit.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconBtnTitlebarExit.IconSize = 20;
+            this.iconBtnTitlebarExit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.iconBtnTitlebarExit.Location = new System.Drawing.Point(870, 0);
+            this.iconBtnTitlebarExit.Name = "iconBtnTitlebarExit";
+            this.iconBtnTitlebarExit.Size = new System.Drawing.Size(30, 23);
+            this.iconBtnTitlebarExit.TabIndex = 2;
+            this.iconBtnTitlebarExit.UseVisualStyleBackColor = false;
+            this.iconBtnTitlebarExit.Click += new System.EventHandler(this.iconButton1_Click);
+            // 
+            // panelMain
+            // 
+            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMain.Location = new System.Drawing.Point(183, 23);
+            this.panelMain.Name = "panelMain";
+            this.panelMain.Size = new System.Drawing.Size(900, 571);
+            this.panelMain.TabIndex = 2;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.ClientSize = new System.Drawing.Size(1083, 594);
+            this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panelTitleBar);
             this.Controls.Add(this.panelMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -278,6 +289,7 @@
         private FontAwesome.Sharp.IconButton iconBtnTitlebarExit;
         private FontAwesome.Sharp.IconButton iconBtnTitleBarMinimize;
         private FontAwesome.Sharp.IconButton iconBtnTitlebarMaximize;
+        private System.Windows.Forms.Panel panelMain;
     }
 }
 

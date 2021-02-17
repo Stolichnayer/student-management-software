@@ -1,0 +1,117 @@
+﻿using System;
+using System.Data;
+using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+
+namespace student_management_system.Controller
+{
+    // Singleton DatabaseManager class
+    public class DatabaseManager
+    {
+        private static DatabaseManager _instance;
+        
+        private string _server = "127.0.0.1";
+        private int _port = 3306;
+        private string _database = "students_schema";
+        private string _user = "root";
+        private string _password = "root";
+        
+        private DatabaseManager() {}
+
+        public static DatabaseManager GetInstance()
+        {
+            return _instance ??= new DatabaseManager();
+        }
+
+        public bool LoginToDatabase(string server, int port, string database, string user, string password)
+        {
+            _server = server;
+            _port = port;
+            _database = database;
+            _user = user;
+            _password = password;
+            
+            //Connection string
+            string connStr =
+                $"server={_server};user={_user};database={_database};port={_port};password={_password}";
+            
+            //MySqlConnection object
+            MySqlConnection conn = new MySqlConnection(connStr);
+
+            try
+            {
+                Console.Out.WriteLine(connStr);
+                //Try to open connection
+                conn.Open();
+
+                return true;
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show(e.Number == 0 ? "Invalid username/password!" : "Could not find server!",
+                    $"Error Number {e.Number}!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            
+        }
+        
+        public DataSet ExecuteQuery(string query)
+        {
+            //Connection string
+            string connStr =
+                $"server={_server};user={_user};database={_database};port={_port};password={_password}";
+            
+            //MySqlConnection object
+            MySqlConnection conn = new MySqlConnection(connStr);
+
+            try
+            {
+                //Try to open connection
+                conn.Open();
+
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                
+                MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(cmd);
+                
+                DataSet dataset = new DataSet();
+
+                //Fill dataset with query results
+                mySqlDataAdapter.Fill(dataset);
+
+                return dataset;
+            }
+            catch
+            {
+                MessageBox.Show("Server disconnected...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
+
+        public int ExecuteNonQuery(string query)
+        {
+            //Connection string
+            string connStr =
+                $"server={_server};user={_user};database={_database};port={_port};password={_password}";
+            
+            //MySqlConnection object
+            MySqlConnection conn = new MySqlConnection(connStr);
+
+            try
+            {
+                //Try to open connection
+                conn.Open();
+                
+                //Execute Non Query
+                MySqlCommand command = new MySqlCommand(query, conn);
+                return command.ExecuteNonQuery();
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show(e.Message);
+                MessageBox.Show("Server disconnected...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return -1;
+            }
+        }
+    }
+}

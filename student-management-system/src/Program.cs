@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using student_management_system.Forms;
 
 namespace student_management_system
 {

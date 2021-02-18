@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FontAwesome.Sharp;
+
 
 // TODO: Disabled Fields and enabled with Add and Edit button
 // TODO: Paging
@@ -15,7 +15,7 @@ using FontAwesome.Sharp;
 
 namespace student_management_system.Forms
 {
-    public partial class MainForm : Form
+    public sealed partial class MainForm : Form
     {
         private Panel _leftBorderPanel;
         private IconButton _focusedButton;
@@ -23,6 +23,7 @@ namespace student_management_system.Forms
 
         public MainForm()
         {
+            CheckForIllegalCrossThreadCalls = false;
             InitializeComponent();
             CreateButtonFocusBorder();
 
@@ -39,7 +40,6 @@ namespace student_management_system.Forms
             _leftBorderPanel = new Panel();
             _leftBorderPanel.Size = new Size(4, 52);
             panelMenu.Controls.Add(_leftBorderPanel);
-
         }
 
         //Native Windows dll function to make Form with rounded corners
@@ -81,6 +81,7 @@ namespace student_management_system.Forms
                 _focusedButton.BackColor = Color.FromArgb(31, 30, 68);
                 _focusedButton.ForeColor = Color.Gainsboro;
                 _focusedButton.IconColor = Color.Gainsboro;
+                _leftBorderPanel.Hide();
             }
         }
 
@@ -94,27 +95,42 @@ namespace student_management_system.Forms
         {
             FocusButton(sender, Color.LightSalmon);
 
+            ShowLoadingPanel();
             LoadStudentsForm();
+            HideLoadingPanel();
+            
         }
 
         private void LoadStudentsForm()
         {
-            if (_activeForm is StudentsForm studentsForm)
+            if (_activeForm is StudentsForm)
                 return;
 
             _activeForm = new StudentsForm();
-        
+
             _activeForm.TopLevel = false;
             panelMain.Controls.Add(_activeForm);
             _activeForm.FormBorderStyle = FormBorderStyle.None;
             _activeForm.Dock = DockStyle.Fill;
-
             _activeForm.Show();
+
+        }
+
+        private void ShowLoadingPanel()
+        {
+            panelLoading.Show();
+        }
+
+        private void HideLoadingPanel()
+        {
+            panelLoading.Hide();
         }
 
         private void iconBtnCourses_Click(object sender, EventArgs e)
         {
+            ResetUI();
             FocusButton(sender, Color.LightSalmon);
+            panelLoading.Show();
         }
 
         private void iconBtnSomething_Click(object sender, EventArgs e)
@@ -165,12 +181,29 @@ namespace student_management_system.Forms
         private static extern void ReleaseCapture();
 
         [DllImport("user32.dll", EntryPoint = "SendMessage")]
-        private static extern void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+        private static extern void SendMessage(IntPtr hWnd, int wMsg, int wParam, int lParam);
 
         private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void iconPictureBox1_Click(object sender, EventArgs e)
+        {
+            ResetUI();
+        }
+
+        private void ResetUI()
+        {
+            if (_activeForm != null)
+            {
+                _activeForm.Hide();
+                panelMain.Controls.Remove(_activeForm);
+                _activeForm = null;
+            }
+
+            UnfocusFocusedButton();
         }
     }
 }

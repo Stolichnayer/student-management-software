@@ -1,6 +1,7 @@
 ﻿using System.Data;
 using System.Drawing;
 using System.Reflection;
+using System.Threading;
 using System.Windows.Forms;
 
 using student_management_system.Controller;
@@ -47,6 +48,7 @@ namespace student_management_system.Forms
             dataGridViewStudents.Columns[4].HeaderText = "Birth date";
             dataGridViewStudents.Columns[5].HeaderText = "Reg. date";
             dataGridViewStudents.Columns[6].HeaderText = "GPA";
+            
         }
 
         private void dataGridViewStudents_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)

@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panelBottomHalf = new System.Windows.Forms.Panel();
             this.totalStudentsLabel = new System.Windows.Forms.Label();
-            this.dataGridViewStudents = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.iconBtnSearch = new FontAwesome.Sharp.IconButton();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.panelBottomHalf = new System.Windows.Forms.Panel();
+            this.dataGridViewStudents = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudents)).BeginInit();
             this.SuspendLayout();
@@ -50,15 +50,6 @@
             this.panel1.Size = new System.Drawing.Size(900, 41);
             this.panel1.TabIndex = 0;
             // 
-            // panelBottomHalf
-            // 
-            this.panelBottomHalf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(56)))));
-            this.panelBottomHalf.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBottomHalf.Location = new System.Drawing.Point(0, 369);
-            this.panelBottomHalf.Name = "panelBottomHalf";
-            this.panelBottomHalf.Size = new System.Drawing.Size(900, 202);
-            this.panelBottomHalf.TabIndex = 1;
-            // 
             // totalStudentsLabel
             // 
             this.totalStudentsLabel.AutoSize = true;
@@ -69,6 +60,43 @@
             this.totalStudentsLabel.Size = new System.Drawing.Size(111, 17);
             this.totalStudentsLabel.TabIndex = 3;
             this.totalStudentsLabel.Text = "Total students: 0";
+            // 
+            // iconBtnSearch
+            // 
+            this.iconBtnSearch.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.iconBtnSearch.FlatAppearance.BorderSize = 0;
+            this.iconBtnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconBtnSearch.ForeColor = System.Drawing.Color.White;
+            this.iconBtnSearch.IconChar = FontAwesome.Sharp.IconChar.Search;
+            this.iconBtnSearch.IconColor = System.Drawing.Color.White;
+            this.iconBtnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconBtnSearch.IconSize = 18;
+            this.iconBtnSearch.Location = new System.Drawing.Point(803, 8);
+            this.iconBtnSearch.Name = "iconBtnSearch";
+            this.iconBtnSearch.Size = new System.Drawing.Size(77, 23);
+            this.iconBtnSearch.TabIndex = 1;
+            this.iconBtnSearch.Text = "Search";
+            this.iconBtnSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconBtnSearch.UseVisualStyleBackColor = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox1.BackColor = System.Drawing.Color.White;
+            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(632, 8);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(165, 23);
+            this.textBox1.TabIndex = 0;
+            // 
+            // panelBottomHalf
+            // 
+            this.panelBottomHalf.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(56)))));
+            this.panelBottomHalf.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelBottomHalf.Location = new System.Drawing.Point(0, 369);
+            this.panelBottomHalf.Name = "panelBottomHalf";
+            this.panelBottomHalf.Size = new System.Drawing.Size(900, 202);
+            this.panelBottomHalf.TabIndex = 1;
             // 
             // dataGridViewStudents
             // 
@@ -95,34 +123,6 @@
             this.dataGridViewStudents.Size = new System.Drawing.Size(900, 328);
             this.dataGridViewStudents.TabIndex = 3;
             this.dataGridViewStudents.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewStudents_RowPostPaint);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox1.BackColor = System.Drawing.Color.White;
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(632, 8);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(165, 23);
-            this.textBox1.TabIndex = 0;
-            // 
-            // iconBtnSearch
-            // 
-            this.iconBtnSearch.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.iconBtnSearch.FlatAppearance.BorderSize = 0;
-            this.iconBtnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconBtnSearch.ForeColor = System.Drawing.Color.White;
-            this.iconBtnSearch.IconChar = FontAwesome.Sharp.IconChar.Search;
-            this.iconBtnSearch.IconColor = System.Drawing.Color.White;
-            this.iconBtnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconBtnSearch.IconSize = 18;
-            this.iconBtnSearch.Location = new System.Drawing.Point(803, 8);
-            this.iconBtnSearch.Name = "iconBtnSearch";
-            this.iconBtnSearch.Size = new System.Drawing.Size(77, 23);
-            this.iconBtnSearch.TabIndex = 1;
-            this.iconBtnSearch.Text = "Search";
-            this.iconBtnSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconBtnSearch.UseVisualStyleBackColor = false;
             // 
             // StudentsForm
             // 

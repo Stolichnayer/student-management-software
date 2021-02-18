@@ -1,6 +1,6 @@
 ﻿namespace student_management_system.Forms
 {
-    partial class MainForm
+    sealed partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -35,13 +35,20 @@
             this.iconBtnCourses = new FontAwesome.Sharp.IconButton();
             this.iconBtnStudents = new FontAwesome.Sharp.IconButton();
             this.panelLogo = new System.Windows.Forms.Panel();
+            this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.panelTitleBar = new System.Windows.Forms.Panel();
             this.iconBtnTitlebarMaximize = new FontAwesome.Sharp.IconButton();
             this.iconBtnTitleBarMinimize = new FontAwesome.Sharp.IconButton();
             this.iconBtnTitlebarExit = new FontAwesome.Sharp.IconButton();
             this.panelMain = new System.Windows.Forms.Panel();
+            this.panelLoading = new System.Windows.Forms.Panel();
+            this.iconButtonLoading = new FontAwesome.Sharp.IconButton();
             this.panelMenu.SuspendLayout();
+            this.panelLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.panelTitleBar.SuspendLayout();
+            this.panelMain.SuspendLayout();
+            this.panelLoading.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -176,11 +183,28 @@
             // 
             // panelLogo
             // 
+            this.panelLogo.Controls.Add(this.iconPictureBox1);
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Name = "panelLogo";
             this.panelLogo.Size = new System.Drawing.Size(183, 105);
             this.panelLogo.TabIndex = 0;
+            // 
+            // iconPictureBox1
+            // 
+            this.iconPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.iconPictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.iconPictureBox1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconPictureBox1.IconColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBox1.IconSize = 105;
+            this.iconPictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.iconPictureBox1.Name = "iconPictureBox1";
+            this.iconPictureBox1.Size = new System.Drawing.Size(183, 105);
+            this.iconPictureBox1.TabIndex = 0;
+            this.iconPictureBox1.TabStop = false;
+            this.iconPictureBox1.Click += new System.EventHandler(this.iconPictureBox1_Click);
             // 
             // panelTitleBar
             // 
@@ -252,11 +276,43 @@
             // 
             // panelMain
             // 
+            this.panelMain.Controls.Add(this.panelLoading);
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(183, 23);
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(900, 571);
             this.panelMain.TabIndex = 2;
+            // 
+            // panelLoading
+            // 
+            this.panelLoading.Controls.Add(this.iconButtonLoading);
+            this.panelLoading.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelLoading.Location = new System.Drawing.Point(0, 0);
+            this.panelLoading.Name = "panelLoading";
+            this.panelLoading.Size = new System.Drawing.Size(900, 571);
+            this.panelLoading.TabIndex = 2;
+            this.panelLoading.Visible = false;
+            // 
+            // iconButtonLoading
+            // 
+            this.iconButtonLoading.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            this.iconButtonLoading.FlatAppearance.BorderSize = 0;
+            this.iconButtonLoading.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonLoading.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButtonLoading.ForeColor = System.Drawing.Color.Gainsboro;
+            this.iconButtonLoading.IconChar = FontAwesome.Sharp.IconChar.Spinner;
+            this.iconButtonLoading.IconColor = System.Drawing.Color.Gainsboro;
+            this.iconButtonLoading.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButtonLoading.IconSize = 50;
+            this.iconButtonLoading.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.iconButtonLoading.Location = new System.Drawing.Point(294, 250);
+            this.iconButtonLoading.Name = "iconButtonLoading";
+            this.iconButtonLoading.Size = new System.Drawing.Size(285, 58);
+            this.iconButtonLoading.TabIndex = 1;
+            this.iconButtonLoading.Text = "Loading";
+            this.iconButtonLoading.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.iconButtonLoading.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButtonLoading.UseVisualStyleBackColor = false;
             // 
             // MainForm
             // 
@@ -267,11 +323,16 @@
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panelTitleBar);
             this.Controls.Add(this.panelMenu);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainForm";
             this.Text = "Student Management System";
             this.panelMenu.ResumeLayout(false);
+            this.panelLogo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             this.panelTitleBar.ResumeLayout(false);
+            this.panelMain.ResumeLayout(false);
+            this.panelLoading.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -290,6 +351,9 @@
         private FontAwesome.Sharp.IconButton iconBtnTitleBarMinimize;
         private FontAwesome.Sharp.IconButton iconBtnTitlebarMaximize;
         private System.Windows.Forms.Panel panelMain;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
+        private FontAwesome.Sharp.IconButton iconButtonLoading;
+        private System.Windows.Forms.Panel panelLoading;
     }
 }
 

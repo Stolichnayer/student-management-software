@@ -97,6 +97,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\Controller\ConfigManager.cs" />
     <Compile Include="src\Controller\DatabaseManager.cs" />
     <Compile Include="src\Forms\MainForm.cs">
       <SubType>Form</SubType>
@@ -127,6 +128,7 @@
     <EmbeddedResource Include="src\Forms\StudentsForm.resx">
       <DependentUpon>StudentsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="App1.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

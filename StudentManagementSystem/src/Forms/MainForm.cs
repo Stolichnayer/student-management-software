@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Drawing;
 using System.Runtime.InteropServices;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using FontAwesome.Sharp;
-
 
 // TODO: Disabled Fields and enabled with Add and Edit button
 // TODO: Paging
@@ -13,26 +11,42 @@ using FontAwesome.Sharp;
 // TODO: first column numbers
 // TODO: loading
 
-namespace student_management_system.Forms
+// TODO: TIP: create Forms in initializers, much better performance.
+
+namespace StudentManagementSystem.Forms
 {
     public sealed partial class MainForm : Form
     {
         private Panel _leftBorderPanel;
         private IconButton _focusedButton;
         private Form _activeForm;
+        private Form _studentsForm;
+        private Form _settingsForm;
+
+        // Border Radius of Form's Rectangle
+        private const int BorderRadius = 40;
 
         public MainForm()
         {
-            CheckForIllegalCrossThreadCalls = false;
             InitializeComponent();
             CreateButtonFocusBorder();
+            CreateForms();
+            DrawRoundBordersToForm();
+        }
 
-            //Draw round borders
-             Region = Region.
+        private void DrawRoundBordersToForm()
+        {
+            // Draw round borders
+            Region = Region.
                 FromHrgn(CreateRoundRectRgn(0, 0, 
-                                            Width, Height, 
-                                            40, 40));
-             DoubleBuffered = true;
+                    Width, Height, 
+                    BorderRadius, BorderRadius));
+        }
+
+        private void CreateForms()
+        {
+            _studentsForm = new StudentsForm();
+            _settingsForm = new SettingsForm();
         }
 
         private void CreateButtonFocusBorder()
@@ -42,7 +56,7 @@ namespace student_management_system.Forms
             panelMenu.Controls.Add(_leftBorderPanel);
         }
 
-        //Native Windows dll function to make Form with rounded corners
+        // Native Windows dll function to make Form with rounded corners
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
         (
@@ -60,13 +74,13 @@ namespace student_management_system.Forms
             {
                 UnfocusFocusedButton();
 
-                //Button Propeties
+                // Button Propeties
                 _focusedButton = (IconButton) senderBtn;
                 _focusedButton.BackColor = Color.FromArgb(37, 36, 81);
                 _focusedButton.ForeColor = color;
                 _focusedButton.IconColor = color;
 
-                //Left Border Panel Properties
+                // Left Border Panel Properties
                 _leftBorderPanel.BackColor = color;
                 _leftBorderPanel.Location = new Point(0, _focusedButton.Location.Y);
                 _leftBorderPanel.Visible = true;
@@ -106,7 +120,7 @@ namespace student_management_system.Forms
             if (_activeForm is StudentsForm)
                 return;
 
-            _activeForm = new StudentsForm();
+            _activeForm = _studentsForm;
 
             _activeForm.TopLevel = false;
             panelMain.Controls.Add(_activeForm);
@@ -141,8 +155,15 @@ namespace student_management_system.Forms
         private void iconBtnSettings_Click(object sender, EventArgs e)
         {
             FocusButton(sender, Color.LightSalmon);
+            LoadSettingsForm();
+
         }
-        
+
+        private void LoadSettingsForm()
+        {
+            _settingsForm.Show();
+        }
+
         private void iconButton1_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -158,16 +179,13 @@ namespace student_management_system.Forms
             
             if (WindowState == FormWindowState.Maximized)
             {
-                //Restore
+                // Restore
                 WindowState = FormWindowState.Normal;
-                Region = Region.
-                    FromHrgn(CreateRoundRectRgn
-                    (0, 0, Width,
-                        Height, 40, 40));
+                DrawRoundBordersToForm();
             }
             else
             {
-                //Maximize
+                // Maximize
                 WindowState = FormWindowState.Maximized;
                 Region = Region.
                     FromHrgn(CreateRoundRectRgn
@@ -176,7 +194,7 @@ namespace student_management_system.Forms
             }
         }
 
-        //Add Drag Operation to titlebar
+        // Add Drag Operation to titlebar
         [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
         private static extern void ReleaseCapture();
 

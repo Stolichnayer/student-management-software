@@ -1,4 +1,4 @@
-﻿namespace student_management_system.Forms
+﻿namespace StudentManagementSystem.Forms
 {
     sealed partial class MainForm
     {

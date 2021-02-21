@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
-using student_management_system.Forms;
+using StudentManagementSystem.Forms;
 
-namespace student_management_system
+namespace StudentManagementSystem
 {
     internal static class Program
     {

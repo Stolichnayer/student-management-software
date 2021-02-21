@@ -1,12 +1,10 @@
 ﻿using System.Data;
 using System.Drawing;
 using System.Reflection;
-using System.Threading;
 using System.Windows.Forms;
+using StudentManagementSystem.Controller;
 
-using student_management_system.Controller;
-
-namespace student_management_system.Forms
+namespace StudentManagementSystem.Forms
 {
     public partial class StudentsForm : Form
     {

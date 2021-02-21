@@ -3,7 +3,7 @@ using System.Data;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
-namespace student_management_system.Controller
+namespace StudentManagementSystem.Controller
 {
     // Singleton DatabaseManager class
     public class DatabaseManager
